@@ -2,13 +2,4 @@
 resolver = "2"
 members = [
     "bip32",
-    "canonical-path",
-    "datadog",
-    "hkd32",
-    "iqhttp",
-    "mintscan",
-    "secrecy",
-    "signatory",
-    "stdtx",
-    "subtle-encoding",
 ]
