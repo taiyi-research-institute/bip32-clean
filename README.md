@@ -1,93 +1,69 @@
-# iqlusion crates 📦 <a href="https://www.iqlusion.io"><img src="https://storage.googleapis.com/iqlusion-production-web/img/logo/iqlusion-rings-sm.png" alt="iqlusion" width="24" height="24"></a>
+# BIP32: HD Wallets
 
+[![Crate][crate-image]][crate-link]
+[![Docs][docs-image]][docs-link]
 [![Apache 2.0 Licensed][license-image]][license-link]
-![MSRV][msrv-image]
-[![dependency status][deps-image]][deps-link]
+![MSRV][rustc-image]
+[![Safety Dance][safety-image]][safety-link]
+[![Build Status][build-image]][build-link]
 
-This repository contains a set of Apache 2.0-licensed packages (a.k.a.  "crates")
-for the [Rust](https://www.rust-lang.org/) programming language, contributed
-to the community by [iqlusion](https://www.iqlusion.io).
+BIP32 hierarchical key derivation implemented in a generic, `no_std`-friendly
+manner. Supports deriving keys using the pure Rust `k256` crate or the
+C library-backed `secp256k1` crate.
 
-If you are interested in contributing to this repository, please make sure to
-read the [CONTRIBUTING.md] and [CODE_OF_CONDUCT.md] files first.
+![Diagram](https://raw.githubusercontent.com/bitcoin/bips/4bc05ff903cb47eb18ce58a9836de1ac13ecf1b7/bip-0032/derivation.png)
 
-## Crates
+[Documentation][docs-link]
 
-This repository contains the following crates:
+## About
 
-| Name              | Version                    | Build                      | Description                            |
-|-------------------|----------------------------|----------------------------|----------------------------------------|
-| [bip32]           | ![][bip32-crate]           | ![][bip32-build]           | Hierarchical key derivation            |
-| [canonical‑path]  | ![][canonical-path-crate]  | ![][canonical-path-build]  | Canonical filesystem path support      |
-| [datadog]         | ![][datadog-crate]         | ![][datadog-build]         | Datadog client library                 |
-| [hkd32]           | ![][hkd32-crate]           | ![][hkd32-build]           | HMAC-based Hierarchical Key Derivation |
-| [secrecy]         | ![][secrecy-crate]         | ![][secrecy-build]         | Simple secret-keeping library          |
-| [signatory]       | ![][signatory-crate]       | ![][signatory-build]       | Signature library with ECDSA+Ed25519   |
-| [stdtx]           | ![][stdtx-crate]           | ![][stdtx-build]           | Cosmos StdTx builder/signer/serializer |
-| [subtle‑encoding] | ![][subtle-encoding-crate] | ![][subtle-encoding-build] | Constant-time hex/bech32/base64        |
+BIP32 is an algorithm for generating a hierarchy of elliptic curve keys,
+a.k.a. "wallets", from a single seed value. A related algorithm also
+implemented by this crate, BIP39, provides a way to derive the seed value
+from a set of 24-words from a preset list, a.k.a. a "mnemonic".
+
+## Minimum Supported Rust Version
+
+Rust **1.57** or newer.
+
+In the future, we reserve the right to change MSRV (i.e. MSRV is out-of-scope
+for this crate's SemVer guarantees), however when we do it will be accompanied by
+a minor version bump.
 
 ## License
 
-Copyright © 2018-2021 iqlusion
+Copyright © 2020-2022 iqlusion
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+**bip32.rs** is distributed under the terms of either the MIT license
+or the Apache License (Version 2.0), at your option.
 
-    https://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+See [LICENSE-APACHE] (Apache License, Version 2.0) and [LICENSE-MIT] for
+further details.
 
 ## Contribution
 
 Unless you explicitly state otherwise, any contribution intentionally
-submitted for inclusion in the work by you shall be licensed as above,
+submitted for inclusion in the work by you shall be dual licensed as above,
 without any additional terms or conditions.
-
-[//]: # (links)
-
-[CONTRIBUTING.md]: https://github.com/iqlusioninc/crates/blob/main/CONTRIBUTING.md
-[CODE_OF_CONDUCT.md]: https://github.com/iqlusioninc/crates/blob/main/CODE_OF_CONDUCT.md
 
 [//]: # (badges)
 
+[crate-image]: https://img.shields.io/crates/v/bip32.svg
+[crate-link]: https://crates.io/crates/bip32
+[docs-image]: https://docs.rs/bip32/badge.svg
+[docs-link]: https://docs.rs/bip32/
 [license-image]: https://img.shields.io/badge/license-Apache2.0-blue.svg
 [license-link]: https://github.com/iqlusioninc/crates/blob/main/LICENSE
-[msrv-image]: https://img.shields.io/badge/rustc-1.56+-blue.svg
-[deps-image]: https://deps.rs/repo/github/iqlusioninc/crates/status.svg
-[deps-link]: https://deps.rs/repo/github/iqlusioninc/crates
+[rustc-image]: https://img.shields.io/badge/rustc-1.56+-blue.svg
+[safety-image]: https://img.shields.io/badge/unsafe-forbidden-success.svg
+[safety-link]: https://github.com/rust-secure-code/safety-dance/
+[build-image]: https://github.com/iqlusioninc/crates/actions/workflows/bip32.yml/badge.svg
+[build-link]: https://github.com/iqlusioninc/crates/actions/workflows/bip32.yml
 
-[//]: # (crates)
+[//]: # (links)
 
-[bip32]: https://github.com/iqlusioninc/crates/tree/main/bip32
-[bip32-crate]: https://img.shields.io/crates/v/bip32.svg
-[canonical‑path]: https://github.com/iqlusioninc/crates/tree/main/canonical-path
-[canonical-path-crate]: https://img.shields.io/crates/v/canonical-path.svg
-[datadog]: https://github.com/iqlusioninc/crates/tree/main/datadog
-[datadog-crate]: https://img.shields.io/crates/v/datadog.svg
-[hkd32]: https://github.com/iqlusioninc/crates/tree/main/hkd32
-[hkd32-crate]: https://img.shields.io/crates/v/hkd32.svg
-[secrecy]: https://github.com/iqlusioninc/crates/tree/main/secrecy
-[secrecy-crate]: https://img.shields.io/crates/v/secrecy.svg
-[signatory]: https://github.com/iqlusioninc/crates/tree/main/signatory
-[signatory-crate]: https://img.shields.io/crates/v/signatory.svg
-[stdtx]: https://github.com/iqlusioninc/crates/tree/main/stdtx
-[stdtx-crate]: https://img.shields.io/crates/v/stdtx.svg
-[subtle‑encoding]: https://github.com/iqlusioninc/crates/tree/main/subtle-encoding
-[subtle-encoding-crate]: https://img.shields.io/crates/v/subtle-encoding.svg
-
-[//]: # (build)
-
-[bip32-build]: https://github.com/iqlusioninc/crates/actions/workflows/bip32.yml/badge.svg
-[canonical-path-build]: https://github.com/iqlusioninc/crates/actions/workflows/canonical-path.yml/badge.svg
-[datadog-build]: https://github.com/iqlusioninc/crates/actions/workflows/datadog.yml/badge.svg
-[hkd32-build]: https://github.com/iqlusioninc/crates/actions/workflows/hkd32.yml/badge.svg
-[secrecy-build]: https://github.com/iqlusioninc/crates/actions/workflows/secrecy.yml/badge.svg
-[signatory-build]: https://github.com/iqlusioninc/crates/actions/workflows/signatory.yml/badge.svg
-[stdtx-build]: https://github.com/iqlusioninc/crates/actions/workflows/stdtx.yml/badge.svg
-[subtle-encoding-build]: https://github.com/iqlusioninc/crates/actions/workflows/subtle-encoding.yml/badge.svg
-[tai64-build]: https://github.com/iqlusioninc/crates/actions/workflows/tai64.yml/badge.svg
+[bip32]: https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki
+[libsecp256k1 C library]: https://github.com/bitcoin-core/secp256k1
+[`secp256k1` Rust crate]: https://github.com/rust-bitcoin/rust-secp256k1/
+[LICENSE-APACHE]: https://github.com/iqlusioninc/crates/blob/main/bip32/LICENSE-APACHE
+[LICENSE-MIT]: https://github.com/iqlusioninc/crates/blob/main/bip32/LICENSE-MIT

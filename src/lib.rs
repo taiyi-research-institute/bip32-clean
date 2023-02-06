@@ -111,9 +111,6 @@ mod public_key;
 #[cfg(feature = "alloc")]
 mod derivation_path;
 
-#[cfg(feature = "mnemonic")]
-mod mnemonic;
-
 pub use crate::{
     child_number::ChildNumber,
     error::{Error, Result},
@@ -128,10 +125,6 @@ pub use crate::{
 
 #[cfg(feature = "alloc")]
 pub use crate::derivation_path::DerivationPath;
-
-#[cfg(feature = "bip39")]
-#[cfg_attr(docsrs, doc(cfg(feature = "bip39")))]
-pub use crate::mnemonic::{Language, Phrase as Mnemonic, Seed};
 
 #[cfg(feature = "secp256k1")]
 #[cfg_attr(docsrs, doc(cfg(feature = "secp256k1")))]
